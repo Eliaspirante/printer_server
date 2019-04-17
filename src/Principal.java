@@ -24,23 +24,21 @@ public class Principal {
 
             System.out.println(printerService.getPrinters());
             
-            String inputString = "teste";
-
-            String command =
-            		"^XA\n"+
-            				"^FO,20,20^BQ,2,10\n"+
-            				"^FDD03048F,LM,N0123456789,A12AABB,B0006qrcode^FS\n"+
-            				"^XZ\n";
-//                    "N\n" + 
-//            		"S3\n"+
-//            		"D8\n"+
-//            		"ZT\n"+
-//            		"JF\n"+
-//                    "A10,0,0,3,0,1,1,N,\""+inputString+"\"\n" +
-//                    "A20,50,0,3,0,1,1,R,\""+inputString+"\"\n" + 
-//                    "P1\n";
+            String teste = "TESTE DE IMPRESSAO";
+            String teste2 = "aqui novo";
+            StringBuilder texto = new StringBuilder("N\n"); //  (limpa o buffer de impressão, para ser iniciado um novo arquivo BPLB)
+            texto.append("D27\n");  //(configura a Densidade ou aquecimento da cabeça de impressão para o valor 9)
+            texto.append("S1\n");  //(configura a Velocidade de impressão para 3 pol./seg)
+            texto.append("JF\n");  //(habilita o “backfeed” para que ao final da impressão, o espaço entre etiquetas pare na serrilha)
+            texto.append("ZB\n");  //(indica que a impressão deve inciar a partir do topo, ou seja, de cabeça para baixo)
+            texto.append("q760\n");
+            texto.append("A40,20,0,3,1,1,N," + '"' +  teste  + '"' + "\n");
+            texto.append("A250,20,0,3,1,1,N," + '"' +  teste2  + '"' + "\n");
+            texto.append("P1\n");
             //print some stuff. Change the printer name to your thermal printer name.
-            printerService.printBytes("ELGIN L42PRO 2", command.getBytes());
+            printerService.printBytes("ELGIN L42Pro", texto.toString().getBytes());
+            		
+//            printerService.printString("ELGIN L42Pro","teste");
             
 //            System.out.println(inputString);
 //

@@ -27,7 +27,7 @@ public class PrinterService implements Printable{
 
         List<String> printerList = new ArrayList<String>();
         for(PrintService printerService: printServices){
-            printerList.add( printerService.getName());
+            printerList.add(printerService.getName());
         }
 
         return printerList;
