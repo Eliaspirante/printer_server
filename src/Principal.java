@@ -24,19 +24,22 @@ public class Principal {
 
             System.out.println(printerService.getPrinters());
             
-            String teste = "TESTE DE IMPRESSAO";
+            String teste = "TESTE DE ABOBOBOBORA";
             String teste2 = "aqui novo";
-            StringBuilder texto = new StringBuilder("N\n"); //  (limpa o buffer de impressão, para ser iniciado um novo arquivo BPLB)
-            texto.append("D27\n");  //(configura a Densidade ou aquecimento da cabeça de impressão para o valor 9)
-            texto.append("S1\n");  //(configura a Velocidade de impressão para 3 pol./seg)
-            texto.append("JF\n");  //(habilita o “backfeed” para que ao final da impressão, o espaço entre etiquetas pare na serrilha)
-            texto.append("ZB\n");  //(indica que a impressão deve inciar a partir do topo, ou seja, de cabeça para baixo)
-            texto.append("q760\n");
-            texto.append("A40,20,0,3,1,1,N," + '"' +  teste  + '"' + "\n");
-            texto.append("A250,20,0,3,1,1,N," + '"' +  teste2  + '"' + "\n");
+            StringBuilder texto = new StringBuilder("N\n"); //  (limpa o buffer de impressï¿½o, para ser iniciado um novo arquivo BPLB)
+//            texto.append("D13\n");  //(configura a Densidade ou aquecimento da cabeï¿½a de impressï¿½o para o valor 9)
+//            texto.append("S3\n");  //(configura a Velocidade de impressï¿½o para 3 pol./seg)
+//            texto.append("JF\n");  //(habilita o ï¿½backfeedï¿½ para que ao final da impressï¿½o, o espaï¿½o entre etiquetas pare na serrilha)
+//            texto.append("ZT\n");  //(indica que a impressï¿½o deve inciar a partir do topo, ou seja, de cabeï¿½a para baixo)
+//            texto.append("Q88,24\n");
+//            texto.append("q760\n");
+//            texto.append("A0,20,0,3,1,1,N," + '"' +  teste  + '"' + "\n");
+//            texto.append("A40,20,0,3,1,1,N," + '"' +  teste  + '"' + "\n");
+//            texto.append("A250,20,0,3,1,1,N," + '"' +  teste2  + '"' + "\n");
+            texto.append("teste222    teste3");
             texto.append("P1\n");
             //print some stuff. Change the printer name to your thermal printer name.
-            printerService.printBytes("ELGIN L42Pro", texto.toString().getBytes());
+            printerService.printBytes("L42PRO", texto.toString().getBytes());
             		
 //            printerService.printString("ELGIN L42Pro","teste");
             
