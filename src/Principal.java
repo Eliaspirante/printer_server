@@ -41,41 +41,41 @@ public class Principal {
 		            texto.append("ZB\n");
 		            texto.append("Q100,24\n");
 		            texto.append("q760\n");
-	//	            texto.append("B300,52,0,E80,2,2,33,B,\"1234567\"\n");
-	//	            texto.append("B300,52,0,1,3,4,20,N,\"RMS130\"\n");
-	//	            texto.append("B300,52,0,K,4,6,25,B,\"RMS130\"\n");
-	//	            texto.append("A610,52,0,4,1,1,N,\"RMS130\"\n");
-		            texto.append("A80,0,0,4,1,1,N,\""+data1+"\"\n");
-	//	            texto.append("B230,0,0,1,3,4,20,N,\"RMS130\"\n");
+//		            texto.append("A80,0,0,4,1,1,N,\""+data1+"\"\n");
 		            System.out.println(type);
 		            if(type.equals("EAN")) {
 		            	String codigo = data[2].replace("\n", "");
 		            	System.out.println("ENTROU EAN");
 		            	System.out.println(data[2].replace("\n", ""));
-		            	texto.append("B250,0,0,UE0,3,3,30,B,\""+codigo+"\"\n");
+//		            	texto.append("B250,0,0,UE0,3,3,30,B,\""+codigo+"\"\n");
+		            	texto.append("B50,0,0,UE0,3,3,30,B,\""+codigo+"\"\n");
 		            }
 		            if(type.equals("EAN128")) {
 		            	String codigo = data[2].replace("\n", "");
 		            	System.out.println("ENTROU EAN128");
 		            	System.out.println(data[2].replace("\n", ""));
-		            	texto.append("B270,0,0,1E,2,3,30,B,\""+codigo+"\"\n");
+//		            	texto.append("B270,0,0,1E,2,3,30,B,\""+codigo+"\"\n");
+		            	texto.append("B70,0,0,1E,2,3,30,B,\""+codigo+"\"\n");
 		            }
 		            if(type.equals("2OF5")) {
 		            	String codigo = data[2].replace("\n", "");
 		            	System.out.println("ENTROU 2OF5");
 		            	System.out.println(data[2].replace("\n", ""));
-		            	texto.append("B300,0,0,2D,5,6,30,B,\""+codigo+"\"\n");
+//		            	texto.append("B300,0,0,2D,5,6,30,B,\""+codigo+"\"\n");
+		            	texto.append("B100,0,0,2D,5,6,30,B,\""+codigo+"\"\n");
 		            }
 		            if(type.equals("CODE39")) {
 		            	String codigo = data[2].replace("\n", "");
 		            	System.out.println("ENTROU CODE");
 		            	System.out.println(data[2]);
-		            	texto.append("B250,0,0,1,3,4,20,N,\""+codigo+"\"\n");
+//		            	texto.append("B250,0,0,1,3,4,20,N,\""+codigo+"\"\n");
+		            	texto.append("B50,0,0,1,3,4,20,N,\""+codigo+"\"\n");
 		            }
+		            texto.append("A250,0,0,4,1,1,N,\""+data1+"\"\n");
 		            texto.append("P1\n");
 	            }
 	            
-	            printerService.printBytes("L42PRO", texto.toString().getBytes());
+	            printerService.printBytes("ELGIN_L42PRO", texto.toString().getBytes());
 	            
 	            System.out.println("Print data!!");
 	            System.out.println(inputString);
